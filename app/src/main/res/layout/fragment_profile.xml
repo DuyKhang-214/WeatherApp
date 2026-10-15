@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:gravity="center_horizontal" android:orientation="vertical" android:padding="24dp">
+
+        <TextView android:id="@+id/tvAvatar"
+            android:layout_width="96dp" android:layout_height="96dp"
+            android:background="@drawable/bg_avatar" android:gravity="center"
+            android:textColor="#FFFFFF" android:textSize="40sp" android:textStyle="bold" />
+        <TextView android:id="@+id/tvName"
+            android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:layout_marginTop="12dp" android:textSize="24sp" android:textStyle="bold" />
+        <TextView android:id="@+id/tvEmail"
+            android:layout_width="wrap_content" android:layout_height="wrap_content" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginTop="24dp">
+            <LinearLayout
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="vertical" android:padding="16dp">
+                <TextView android:id="@+id/tvVerified" android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingVertical="4dp" />
+                <TextView android:id="@+id/tvProvider" android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingVertical="4dp" />
+                <TextView android:id="@+id/tvCreated" android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingVertical="4dp" />
+                <TextView android:id="@+id/tvLastLogin" android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingVertical="4dp" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnEditName" style="?attr/materialButtonOutlinedStyle"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginTop="24dp" android:text="Edit display name" />
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnVerify" style="?attr/materialButtonOutlinedStyle"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginTop="8dp" android:text="Send verification email" />
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnLogout"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginTop="8dp" android:text="Log out" />
+    </LinearLayout>
+</ScrollView>

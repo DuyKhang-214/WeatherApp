@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item android:id="@+id/action_search" android:title="Search"
+        android:icon="@drawable/ic_search"
+        app:showAsAction="ifRoom|collapseActionView"
+        app:actionViewClass="androidx.appcompat.widget.SearchView" />
+    <item android:id="@+id/action_refresh" android:title="Refresh"
+        android:icon="@drawable/ic_refresh" app:showAsAction="ifRoom" />
+    <item android:id="@+id/action_favorite" android:title="Add to favorites"
+        android:icon="@drawable/ic_star" app:showAsAction="ifRoom" />
+    <item android:id="@+id/action_share" android:title="Share forecast"
+        android:icon="@drawable/ic_share" app:showAsAction="never" />
+
+    <!-- SubMenu -->
+    <item android:id="@+id/menu_units" android:title="Units" app:showAsAction="never">
+        <menu>
+            <group android:checkableBehavior="single">
+                <item android:id="@+id/unit_metric" android:title="Celsius (°C, m/s)" />
+                <item android:id="@+id/unit_imperial" android:title="Fahrenheit (°F, mph)" />
+            </group>
+        </menu>
+    </item>
+
+    <item android:id="@+id/action_logout" android:title="Log out" app:showAsAction="never" />
+</menu>

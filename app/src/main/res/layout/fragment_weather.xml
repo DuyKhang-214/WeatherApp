@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/weatherRoot"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/lottieBackground"
+        android:layout_width="match_parent" android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        app:lottie_autoPlay="false" app:lottie_loop="true" />
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipeRefresh"
+        android:layout_width="match_parent" android:layout_height="match_parent">
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent" android:layout_height="match_parent"
+            android:clipToPadding="false" android:paddingBottom="88dp">
+
+            <LinearLayout
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="vertical" android:padding="16dp">
+
+                <TextView android:id="@+id/tvCity"
+                    android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp" android:gravity="center"
+                    android:text="--" android:textColor="#FFFFFF" android:textSize="28sp" android:textStyle="bold" />
+                <TextView android:id="@+id/tvTemp"
+                    android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:gravity="center" android:text="--°"
+                    android:textColor="#FFFFFF" android:textSize="84sp" android:fontFamily="sans-serif-thin" />
+
+                <LinearLayout
+                    android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:gravity="center" android:orientation="horizontal">
+                    <ImageView android:id="@+id/ivIcon"
+                        android:layout_width="48dp" android:layout_height="48dp"
+                        android:contentDescription="Weather icon" />
+                    <TextView android:id="@+id/tvDesc"
+                        android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:textColor="#FFFFFF" android:textSize="20sp" />
+                </LinearLayout>
+
+                <TextView android:id="@+id/tvHiLo"
+                    android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:gravity="center" android:textColor="#FFFFFF" android:textSize="16sp" />
+                <TextView android:id="@+id/tvUpdated"
+                    android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp" android:gravity="center"
+                    android:textColor="#CCFFFFFF" android:textSize="12sp" />
+
+                <TextView android:id="@+id/tvFavLabel"
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="Favorite cities (long-press for options)"
+                    android:textColor="#CCFFFFFF" android:textSize="12sp" android:visibility="gone" />
+                <HorizontalScrollView
+                    android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:scrollbars="none">
+                    <com.google.android.material.chip.ChipGroup
+                        android:id="@+id/chipFavorites"
+                        android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        app:singleLine="true" />
+                </HorizontalScrollView>
+
+                <TextView
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp" android:text="Hourly forecast"
+                    android:textColor="#FFFFFF" android:textStyle="bold" />
+                <HorizontalScrollView
+                    android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp" android:scrollbars="none">
+                    <!-- Filled from Java code -->
+                    <LinearLayout android:id="@+id/hourlyContainer"
+                        android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:orientation="horizontal" />
+                </HorizontalScrollView>
+
+                <TextView
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp" android:text="5-day forecast"
+                    android:textColor="#FFFFFF" android:textStyle="bold" />
+                <LinearLayout android:id="@+id/dailyContainer"
+                    android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp" android:background="@drawable/bg_card"
+                    android:orientation="vertical" android:paddingHorizontal="12dp" />
+
+                <TextView
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp" android:text="Real-time details"
+                    android:textColor="#FFFFFF" android:textStyle="bold" />
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvDetails"
+                    android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp" />
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cardSuggestions"
+        android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:layout_margin="8dp" android:visibility="gone"
+        app:cardBackgroundColor="#FFFFFF" app:cardCornerRadius="12dp" app:cardElevation="8dp">
+        <ListView android:id="@+id/lvSuggestions"
+            android:layout_width="match_parent" android:layout_height="wrap_content" />
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabLocation"
+        android:layout_width="wrap_content" android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end" android:layout_margin="16dp"
+        android:contentDescription="Use my location"
+        android:src="@drawable/ic_my_location" />
+</FrameLayout>
